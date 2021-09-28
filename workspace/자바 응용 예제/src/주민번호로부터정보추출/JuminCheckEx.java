@@ -69,13 +69,13 @@ public class JuminCheckEx {
 			*/
 			Calendar calendar = Calendar.getInstance(Locale.KOREA);
 			int currentYear = calendar.get(Calendar.YEAR);
-			int juminYear = Integer.parseInt(juminNum.substring(0, 2));
+			int yy = Integer.parseInt(juminNum.substring(0, 2));
 			if (juminNum.charAt(7) - '0' < 3) {
-				juminYear += 1900;
+				yy += 1900;
 			} else {
-				juminYear += 2000;
+				yy += 2000;
 			}
-			int age = currentYear - juminYear + 1;
+			int age = currentYear - yy + 1;
 			System.out.println("나이: " + age);
 			
 			// "성별" 추출
@@ -86,13 +86,49 @@ public class JuminCheckEx {
 			}
 			
 			// "지역" 추출
-			List<Integer> list = new LinkedList<Integer>();
+			String[][] localCode = {
+					{"서울","00","08"}, {"부산","09","12"},
+					{"인천","13","15"}, {"경기","16","25"},
+					{"강원","26","34"}, {"충북","35","39"},
+					{"대전","40","40"}, {"충남","41","43"},
+					{"충남","45","47"}, {"세종","44","44"},
+					{"세종","96","96"}, {"전북","48","54"},
+					{"전남","55","64"}, {"광주","65","66"},
+					{"대구","67","70"}, {"경북","71","80"},
+					{"경남","81","84"}, {"경남","86","90"},
+					{"울산","85","85"}, {"제주","91","95"}
+			};
+			String localeString = juminNum.substring(8, 10);
+			int locale = Integer.parseInt(localeString);
+			String birthPlace = null;
 			
+			for (int j = 0; j <= 19; j++) {
+				if (locale >= Integer.parseInt(localCode[j][1]) &&
+					locale <= Integer.parseInt(localCode[j][2])) {
+					birthPlace = localCode[j][0];
+				}
+			}
+			System.out.println("출신지역: " + birthPlace);
 			
-			String place = map.get(Integer.parseInt(juminNum.substring(8, 10)));
-			System.out.println(place);
+//			내가한 것
+//			int placeNum = Integer.parseInt(juminNum.substring(8, 10));	
+//			for (int i = 0; i < localCode.length; i++) {
+//				int min = Integer.parseInt(localCode[i][1]);
+//				int max = Integer.parseInt(localCode[i][2]);
+//				if (placeNum >= min && placeNum <= max) {
+//					System.out.println("지역: " + localCode[i][0]);
+//					break;
+//				}
+//			}
 			
+			// "생년월일" 추출
+			System.out.println("생년월일: " + yy + "/" + juminNum.substring(2, 4) + "/" + juminNum.substring(4, 6));
 			
+			// "띠" 추출
+			String ddi = null;
+			String[] gangi = {"원숭이", "닭", "개", "돼지", "쥐", "소", "범", "토끼", "용", "뱀", "말", "양"};
+			ddi = gangi[yy % 12];
+			System.out.println("띠: " + ddi);
 		} else {
 			System.out.println("입력된 주민번호가 틀린 번호입니다.");
 		}
