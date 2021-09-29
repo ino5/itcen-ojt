@@ -22,7 +22,16 @@ class MyComparatorSolution {
 		for (int i = 0; i < arr.length; i++) {
 			list.add(new MyInteger(arr[i], n));
 		}
-		Collections.sort(list, comparator);
+//		Collections.sort(list, comparator);
+		Collections.sort(list, new Comparator<MyInteger>() {
+			public int compare(MyInteger a, MyInteger b) {
+				if (a.n == 1) return b.num - a.num;
+				else return a.num - b.num;
+			}
+		});
+		
+		
+		
 		Integer[] answer = new Integer[list.size()];
 		
 		

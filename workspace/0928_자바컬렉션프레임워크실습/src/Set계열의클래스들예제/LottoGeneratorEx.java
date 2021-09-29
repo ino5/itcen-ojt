@@ -14,7 +14,7 @@ public class LottoGeneratorEx {
 //		Set<Integer> set = new HashSet<Integer>();
 		/*
 		 * TreeSet은 저장할 때 이미 정렬하기 때문에 읽어올 때 따로 정렬할필요가 없다.
-		 * 
+		 * TreeSet은 Binary Search Tree의 형태로 데이터를 저장하는 컬렉션이다.
 		 */
 		Set<Integer> set = new TreeSet<Integer>(); 
 		while (set.size() != 6) {
