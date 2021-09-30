@@ -1,5 +1,23 @@
 package Car추상클래스구현;
 
-public class ManualCar {
+public class ManualCar extends Car{
+
+	@Override
+	public void drive() {
+		System.out.println("사람이 운전합니다.");
+		System.out.println("사람이 핸들을 조작합니다.");
+		
+	}
+
+	@Override
+	public void stop() {
+		System.out.println("브레이크로 정지합니다.");
+		
+	}
+
+	@Override
+	public void wipe() {
+		System.out.println("사람이 와이퍼 빠르기를 조절합니다.");
+	}
 
 }
