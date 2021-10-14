@@ -1,3 +1,62 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+
+
+
+
+### Java template
+*.class
+
+
+# Compliled files
+target/
+ 
+# Gradle
+.gradle
+build/
+.gradletasknamecache
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out
+gen
+build
+rebel.xml
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### etc ###
+/bin/
+/eclipse/
+/apache-tomcat-8.0.41/
+
 .settings
 .classpath
 .project
@@ -8,5 +67,3 @@ Servers/
 *.classpath
 target/
 
-/eclipse/
-/apache-tomcat-8.0.41/
