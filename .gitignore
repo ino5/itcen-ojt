@@ -3,5 +3,10 @@
 .project
 bin
 *.class
-/eclipse
-.metadata
+.metadata/
+Servers/
+*.classpath
+target/
+
+/eclipse/
+/apache-tomcat-8.0.41/
