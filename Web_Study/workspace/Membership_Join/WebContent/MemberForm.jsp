@@ -17,7 +17,10 @@
 	tbody.tbody>tr>td:nth-child(2) { width:100%; }
 	#detailAddress::placeholder { color:blue; }
 </style>
-<script src="./js/juminCheck.js"></script>
+<script src="./js/juminCheck.js" charset="UTF-8"></script>
+<script src="./js/change_email.js"></script>
+<script src="./js/idCheck.js"></script>
+
 </head>
 <body>
 	<form name="memberForm" method="POST" action="Member_control.jsp">
@@ -40,7 +43,7 @@
 								       placeholder="6자 이상의 영문자와 숫자"
 								       required autofocus/>
 								<input type="button" value="ID중복확인"
-								       onclick="idCheck(mem_id.value)"/>
+								       onclick="idCheck(memberForm.mem_id.value)"/>
 							</td>
 						</tr>
 						<tr>
@@ -112,8 +115,8 @@
 							<td>성별</td>
 							<td>
 								<input type="radio" name="mem_gender"
-								       value="남성" checked/>남성&nbsp;&nbsp;&nbsp;
-								<input type="radio" name="mem_gender" value="여성"/>여성
+								       value="남" checked/>남성&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="mem_gender" value="여"/>여성
 							</td>
 						</tr>
 						<tr>
@@ -143,6 +146,18 @@
 									}
 									document.write("</select>일 ");	
 								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>직업<span class="red">*</span></td>
+							<td>
+								<select name="mem_job">
+									<option value="">직업선택</option>
+									<option value="회사원">회사원</option>
+									<option value="프로그래머">프로그래머</option>
+									<option value="공무원">공무원</option>
+									<option value="기타">기타</option>
+								</select>
 							</td>
 						</tr>
 						<tr>

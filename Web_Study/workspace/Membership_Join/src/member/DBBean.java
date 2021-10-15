@@ -49,9 +49,9 @@ public class DBBean {
 	// DB 연동 종료 메소드 구현
 	public void disconnect() {
 		try {
-			pstmt.close();
-			conn.close();
-			rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+			if (rs != null) rs.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
