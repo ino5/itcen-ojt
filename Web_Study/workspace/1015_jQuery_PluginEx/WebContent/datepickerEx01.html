@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>datepicker jQuery UI 예제</title>
+<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.16.custom.css"/>
+
+<!-- 코딩 순서가 중요 -->
+<!--  jQuery 인클루드 -->
+<script src="js/jquery.js"></script>
+
+<!--  jQuery UI 인클루드 -->
+<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		// $(selector).action(); => jQuery
+		$("#datepicker").datepicker();
+	});
+</script>
+
+</head>
+<body>
+	<form action="test">
+		<h3><b>콘비노 와인 레스토랑</b></h3>
+		<p>레스토랑 예약날짜: <input id="datepicker" name="date"/></p>
+		<input type="submit"/>
+	</form>
+</body>
+</html>

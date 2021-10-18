@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Zoom을 활용하여 특정 이미지를 확대하여 보여주기</title>
+<style>
+	.zoom { display:inline-block; }
+	.zoom img { width:500px; height:200px; }
+</style>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="./js/jquery.zoom.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#ex1").zoom();				// 마우스 얼리면 확대
+		$("#ex2").zoom({ on:'grab'});	// 클릭된 동안 땡겨짐
+		$("#ex3").zoom({ on:'click'});	// 클릭하면 줌 작동 토글
+		$("#ex4").zoom({ on:'toggle'});	// 클릭한 부분 땡겨짐 토글
+	});
+</script>
+</head>
+<body>
+	<div>
+		<div class="zoom" id="ex1">
+			<img src="./images/main_banner_1.jpg">
+			<p>마우스를 올려보세요!</p>
+		</div>
+	</div>
+
+	<div>
+		<div class="zoom" id="ex2">
+			<img src="./images/main_banner_2.jpg">
+			<p>클릭된 동안 땡겨짐!</p>
+		</div>
+	</div>
+	
+	<div>
+		<div class="zoom" id="ex3">
+			<img src="./images/main_banner_3.gif">
+			<p>클릭하면 줌 작동 토글!</p>
+		</div>
+	</div>
+	
+	<div>
+		<div class="zoom" id="ex4">
+			<img src="./images/main_banner_4.gif">
+			<p>클릭한 부분 땡겨짐 토글!</p>
+		</div>
+	</div>
+</body>
+</html>

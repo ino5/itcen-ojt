@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>datepicker 응용 => 고객 거래 내역 조회</title>
+<style>
+tr th {
+	background: orange;
+}
+
+td:nth-child(n+7):nth-child(-n+10) {
+	text-align: right;
+}
+</style>
+
+<link rel="stylesheet"
+	href="css/ui-lightness/jquery-ui-1.8.16.custom.css" />
+
+<!-- 코딩 순서가 중요 -->
+<!--  jQuery 인클루드 -->
+<script src="js/jquery.js"></script>
+
+<!--  jQuery UI 인클루드 -->
+<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+		// $(selector).action(); => jQuery
+		$("#fromDate").datepicker({dateFormat:"yy-mm-dd"});
+		$("#toDate").datepicker({dateFormat:"yy-mm-dd"});
+	});
+</script>
+
+</head>
+<body>
+	<div>
+		<h2>고객 거래 내역 조회</h2>
+		<p>
+			조회기간<input type="text" id="fromDate" name="fromDate" /> ~ <input
+				type="text" id="toDate" name="toDate" />&nbsp;&nbsp;&nbsp;&nbsp; <input
+				type="submit" value="조회" />
+		</p>
+	</div>
+	<form name="myForm">
+		<table border="1" cellspacing="0" cellpadding="0" width="1100">
+			<tr>
+				<th width="100">구매일자</th>
+				<th width="60">전표<br>번호
+				</th>
+				<th width="80">구분</th>
+				<th width="90">제품코드</th>
+				<th width="120">제품명</th>
+				<th width="80">적립<br>할인액
+				</th>
+				<th width="50">수량</th>
+				<th width="100">구입금액</th>
+				<th width="100">사용포인트</th>
+				<th width="100">적립포인트</th>
+				<th width="120">구매매장</th>
+				<th width="100">판매사원</th>
+			</tr>
+			<tr>
+				<td>2021-10-01</td>
+				<td>8</td>
+				<td>판매</td>
+				<td>1111345247</td>
+				<td>갤럭시S</td>
+				<td>10%</td>
+				<td>1</td>
+				<td>200,000</td>
+				<td>1,000</td>
+				<td>5,000</td>
+				<td>이마트강남점</td>
+				<td>홍길동</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

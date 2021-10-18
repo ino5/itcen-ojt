@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>rotator jQuery 플러그인 활용 => 영화 예매 사이트에 적용</title>
+<style>
+	.divHeight { float:left;}
+	img {width:150px; height:200px;}
+</style>
+
+<!-- 코딩 순서가 중요 -->
+<!--  jQuery 인클루드 -->
+<script src="js/jquery.js"></script>
+
+<!--  jQuery 플러그인 인클루드 -->
+<script src="js/jquery.rotator.js"></script>
+
+<script>
+	$(document).ready(function() {
+		// $(selector).action(); => jQuery
+		$("#rotator1").rotator({ ms:1000 });
+	});
+</script>
+
+</head>
+<body>
+	<h2>CGV 현재상영/개봉예정</h2>
+	<div id="rotator1">
+		<div class="divHeight">
+			<img src="images/노타임투다이.jpg" hspace="20">
+			<br><center><b>노타임투다이</b></center>
+		</div>
+		<div class="divHeight">
+			<img src="images/보이스.jpg" hspace="20">
+			<br><center><b>보이스</b></center>
+		</div>
+		<div class="divHeight">
+			<img src="images/스틸워터.jpg" hspace="20">
+			<br><center><b>스틸워터</b></center>
+		</div>
+		<div class="divHeight">
+			<img src="images/십개월의미래.jpg" hspace="20">
+			<br><center><b>십개월의미래</b></center>
+		</div>
+	</div>
+	<br><br><br><br><br><br><br>
+	<div id="movieselect">
+		<b>영화선택</b>
+		<select name="movie">
+			<option selected>영화선택</option>
+			<option>노타임투다이</option>
+			<option>보이스</option>
+			<option>스틸워터</option>
+			<option>십개월의미래</option>
+		</select>
+	</div>
+</body>
+</html>
