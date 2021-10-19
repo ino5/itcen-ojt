@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트와 경고창을 나타내는 open 플러그인을 제작하여 버튼 태그에 적용하기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+	$(function() {
+		// 플러그인 정의 => 개발자가 직접 제작하겠다.
+		//.fn은 아직 정해지지 않은 자바스크립트에서 지원하는 오브젝트 전체를 뜻하는 가명이다.
+		//.fn으로 생성된 함수는 아무나 이용하고 접근할 수 있는 함수가 된다.
+		$.fn.open = function(eventType, message) {
+			var ts = $(this);
+			$.each(ts, function(i, o) {
+				$(o).on(eventType, function(){
+					alert(message);
+				});
+			});
+		}
+		/* 플러그인 적용 */
+		$(".btn1").open("mouseover", "welcome!");
+		$(".btn2").open("click", "hello!");
+		$(".btn3").open("click", "jquery plugin!");
+		
+	});
+
+</script>
+</head>
+<body>
+	<p><button class="btn1">버튼1</button></p>
+	<p><button class="btn2">버튼2</button></p>
+	<p><button class="btn3">버튼3</button></p>
+	
+</body>
+</html>
