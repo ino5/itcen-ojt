@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>requestForm 페이지</title>
+</head>
+<body>
+	<center>
+		<h2>request 테스트 폼</h2>
+		<hr>
+		<form name="myForm" method="POST" action="request_result.jsp">
+			<table border="1" cellspacing="1" cellpadding="5">
+				<tr>
+					<td bgcolor="orange">이름</td>
+					<td align="left"><input type="text" name="username"/></td>
+				</tr>
+				
+				<tr>
+					<td bgcolor="orange">직업</td>
+					<td align="left">
+						<select name="job">
+							<option value="">직업선택</option>
+							<option value="프로그래머">프로그래머</option>
+							<option value="회사원">회사원</option>
+							<option value="교수">교수</option>
+							<option value="공무원">공무원</option>
+							<option value="기타">기타</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td bgcolor="orange">관심분야</td>
+					<td align="center">
+						<input type="checkbox" name="favorite" value="문화">문화</input>
+						<input type="checkbox" name="favorite" value="여행">여행</input>
+						<input type="checkbox" name="favorite" value="경제">경제</input>
+						<input type="checkbox" name="favorite" value="정치">정치</input>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="확인"/>
+						<input type="reset" value="다시쓰기"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</center>
+</body>
+</html>

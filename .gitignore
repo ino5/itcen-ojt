@@ -52,6 +52,7 @@ build/
 /bin/
 /eclipse/
 /apache-tomcat-8.0.41/
+/cos-20.08/
 
 .settings
 .classpath
