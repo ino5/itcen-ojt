@@ -8,7 +8,6 @@
 <script>
 	function fileCheckSize(input) {
 		if (input.files && input.files[0].size > (20*1024*1024)) {
-			debugger;
 			alert("파일 사이즈가 20MB를 초과했습니다.");
 			input.value = null;
 		}
