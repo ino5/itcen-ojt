@@ -51,4 +51,24 @@ public class EmpDAO {
 		ss.close();
 		return cnt;
 	}
+	
+	public static int delete(String empno) {
+		Map<String, String> map = new Hashtable<String, String>();
+		map.put("empno", empno);
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		int cnt = ss.delete("emp.delete", map);
+		ss.close();
+		return cnt;
+	}
+	
+	public static int update(String empno, String ename, String position) {
+		Map<String, String> map = new Hashtable<String, String>();
+		map.put("empno", empno);
+		map.put("ename", ename);
+		map.put("position", position);
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		int cnt = ss.update("emp.update", map);
+		ss.close();
+		return cnt;
+	}	
 }

@@ -21,7 +21,7 @@
 	}
 	table thead>tr:first-child>th { border: 0px; }
 	
-	#add_win {
+	#add_win, #update_win {
 		width: 200px;
 		border: 1px solid black;
 		background-color: #fff;
@@ -70,6 +70,10 @@
 								<td><%= vo.getEmpno() %></td>
 								<td><%= vo.getEname() %></td>
 								<td><%= vo.getPosition() %></td>
+								<td>
+									<button type="button" onclick="showUpdate(<%= vo.getEmpno() %>, '<%= vo.getEname() %>', '<%= vo.getPosition() %>')">수정</button>
+									<button type="button" onclick="location.href='delete.jsp?empno=<%= vo.getEmpno() %>'">삭제</button>
+								</td>
 							</tr>
 				<% 
 						}
@@ -102,6 +106,30 @@
 			<br/>
 		</div>
 	</div>
+	<div id="update_win">
+		<header>
+			<h2>사원 수정</h2>
+		</header>
+		<div id="body">
+			<form id="updateForm" name="updateForm" method="POST" action="update.jsp">
+				<label for="empno">사원번호</label>
+				<input type="text" id="empnoOfUpdate" name="empno" readonly/>
+				<br/>
+				
+				<label for="ename">사원명</label>
+				<input type="text" id="enameOfUpdate" name="ename"/>
+				<br/>
+				
+				<label for="position">직책</label>
+				<input type="text" id="positionOfUpdate" name="position" />
+				<br/><br/>
+				
+				<input type="button" value="수정" id="update_submit_btn" onclick="sendDataOfUpdate()"/>
+				<input type="button" value="취소" id="update_cancel_btn" onclick="closeWinOfUpdate()"/>
+			</form>
+			<br/>
+		</div>
+	</div>	
 	<script>
 		function addFun() {
 			var addWin = document.getElementById("add_win");
@@ -128,6 +156,36 @@
 			var addWin = document.getElementById("add_win");
 			addWin.style.display = "none";
 		}
+		
+		function showUpdate(empno, ename, position) {
+			var updateForm = document.getElementById('updateForm');
+			updateForm.empno.value = empno;
+			updateForm.ename.value = ename;
+			updateForm.position.value = position;
+			
+			
+			var updateWin = document.getElementById("update_win");
+			updateWin.style.display = "block";			
+		}
+
+		function closeWinOfUpdate() {
+			var updateWin = document.getElementById("update_win");
+			updateWin.style.display = "none";
+		}		
+		
+		function sendDataOfUpdate() {
+			var ename = document.getElementById("enameOfUpdate").value;
+			var position = document.getElementById("positionOfUpdate").value;
+			
+			if (ename.trim().length < 1 || position.trim().length < 1) {
+				alert("빈칸을 채워주세요.")
+				return;
+			}
+			
+			document.updateForm.submit();
+			
+		}
+		
 	</script>
 </body>
 </html>

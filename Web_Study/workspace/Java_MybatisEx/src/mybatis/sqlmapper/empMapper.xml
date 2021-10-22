@@ -11,4 +11,12 @@
 	<insert id="add" parameterType="java.util.Map">
 		INSERT INTO emp_table(empno, ename, position) VALUES(#{empno}, #{ename}, #{position})
 	</insert>
+	
+	<delete id="delete" parameterType="java.util.Map">
+		DELETE FROM emp_table WHERE empno = #{empno}
+	</delete>
+	
+	<update id="update" parameterType="java.util.Map">
+		UPDATE emp_table SET ename = #{ename}, position = #{position} WHERE empno = #{empno} 
+	</update>
 </mapper>
