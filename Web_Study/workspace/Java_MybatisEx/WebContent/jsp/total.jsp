@@ -48,7 +48,7 @@
 			<caption>사원들의 목록을 위한 테이블</caption>
 			<thead>
 				<tr>
-					<th colspan="3" style="text-align:right;">
+					<th colspan="4" style="text-align:right;">
 						<input type="button" value="사원추가" id="add_btn" onclick="addFun()"/>
 					</th>
 				</tr>
@@ -57,6 +57,7 @@
 					<th bgcolor="orange">사원번호</th>
 					<th bgcolor="orange">사원명</th>
 					<th bgcolor="orange">직책</th>
+					<th bgcolor="orange" width="91px">&nbsp;</th>
 				</tr>
 			</thead>
 			<tbody>

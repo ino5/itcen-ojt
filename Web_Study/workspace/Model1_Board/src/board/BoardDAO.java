@@ -61,5 +61,107 @@ public class BoardDAO {
 		}
 		
 		return boardList;
+	} // end getBoardList() =======================================
+	
+	// 게시글번호 조건에 맞는 해당 게시글만 검색하는 메소드
+	public BoardDO getBoard(BoardDO boardDO) {
+		System.out.println("===> getBoard() 처리됨!");
+		
+		BoardDO board = null;
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			
+			// [중요] 해당 게시글의 조회수(cnt)를 1증가 시킨다.
+			String UPDATE_CNT = "UPDATE board SET cnt = cnt + 1 WHERE seq = ?";
+			pstmt = conn.prepareStatement(UPDATE_CNT);
+			pstmt.setInt(1, boardDO.getSeq());
+			pstmt.executeUpdate();	// DML 작업 시에는 executeUpdate() 메소드 호출
+			
+			// 그런 다음 해당 게시글 가져오기
+			String BOARD_GET = "SELECT * FROM board WHERE seq = ?";
+			pstmt = conn.prepareStatement(BOARD_GET);
+			pstmt.setInt(1, boardDO.getSeq());
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				board = new BoardDO();
+				
+				board.setSeq(rs.getInt("SEQ"));
+				board.setTitle(rs.getString("TITLE"));
+				board.setWriter(rs.getString("WRITER"));
+				board.setContent(rs.getString("CONTENT"));
+				board.setRegdate(rs.getDate("REGDATE"));
+				board.setCnt(rs.getInt("CNT"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, pstmt, conn);
+		}
+		return board;
+	} // end getBoard() =================================================
+	
+	// 게시글 수정 처리 메소드
+	public void updateBoard(BoardDO boardDO) {
+		System.out.println("===> updateBoard() 처리됨!");
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			
+			String BOARD_UPDATE = "UPDATE board SET title=?, content=? WHERE seq=?";
+			
+			pstmt = conn.prepareStatement(BOARD_UPDATE);
+			pstmt.setString(1, boardDO.getTitle());
+			pstmt.setString(2, boardDO.getContent());
+			pstmt.setInt(3, boardDO.getSeq());
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+	} // end updateBoard() ========================================
+	
+	// 게시글 삭제
+	public void deleteBoard(BoardDO boardDO) {
+		System.out.println("===> updateBoard() 처리됨!");
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			
+			String BOARD_DELETE = "DELETE FROM board WHERE seq=?";
+			
+			pstmt = conn.prepareStatement(BOARD_DELETE);
+			pstmt.setInt(1, boardDO.getSeq());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+	} // end deleteBoard() ==========================================
+	
+	public void insertBoard(BoardDO boardDO) {
+		System.out.println("===> insertBoard() 처리됨!");
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			
+			String BOARD_INSERT
+				= "INSERT INTO board(seq, title, writer, content) VALUES((SELECT NVL(MAX(seq),0)+1 FROM board), ?, ?, ?)";
+			pstmt = conn.prepareStatement(BOARD_INSERT);
+			pstmt.setString(1, boardDO.getTitle());
+			pstmt.setString(2, boardDO.getWriter());
+			pstmt.setString(3, boardDO.getContent());
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
 	}
 }

@@ -55,6 +55,7 @@ build/
 /cos-20.08/
 /*.zip
 /h2/
+/sts-bundle/
 
 .settings
 .classpath
