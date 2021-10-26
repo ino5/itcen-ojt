@@ -313,28 +313,45 @@ src/main/webapp에 jsp 파일 생성
 ## ♟ 코드 작성 순서
 
 ### 🔷 login.jsp
-    로그인폼 작성
+
+- 로그인폼 작성
+
+<br>
 
 ### 🔷 UserDO.java, UserDAO.java, JDBCUtil.java, BoardDO, BoardDAO.java
-    Model1_Board 프로젝트에서 가져오기
+
+- Model1_Board 프로젝트에서 가져오기
+
+<br>
 
 ### 🔷 DispatcherServlet.java
-    기존 내용 삭제하고 다시 작성
+
+- 기존 내용 삭제하고 다시 작성
+
+<br>
 
 ### 🔷 error.jsp
-    Model1_Board 프로젝트에서 가져오기
+- Model1_Board 프로젝트에서 가져오기
+
+<br>
 
 ### 🔷 getBoardList.jsp
-    작성 이후 DispatcherServlet.java에 `/getBoardList.do` 매핑
+- 작성 이후 DispatcherServlet.java에 `/getBoardList.do` 매핑
+
+<br>
 
 ### 🔷 getBoard.jsp
-    작성 이후 DispatcherServlet.java에 `/getBoard.do` 매핑
-    getBoard.jsp에 윗부분에 스크립틀릿 추가
+- 작성 이후 DispatcherServlet.java에 `/getBoard.do` 매핑
+- getBoard.jsp에 윗부분에 스크립틀릿 추가
+
+<br>
 
 ### 🔷 insertBoard.jsp
-    작성 이후 DispatcherServlet.java에 `/inserBoard.do` 매핑
+- 작성 이후 DispatcherServlet.java에 `/inserBoard.do` 매핑
+
+<br>
 
 ### 🔷 DispatcherServlet.java
-    업데이트: `/updateBoard.do` 매핑 및 로직 작성
-    삭졔: `/deleteBoard.do` 매핑 및 로직 작성
-    로그아웃: `/logout.do` 매핑 및 로직 작성
+- 업데이트: `/updateBoard.do` 매핑 및 로직 작성
+- 삭졔: `/deleteBoard.do` 매핑 및 로직 작성
+- 로그아웃: `/logout.do` 매핑 및 로직 작성
