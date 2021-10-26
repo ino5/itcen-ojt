@@ -78,6 +78,85 @@ public class DispatcherServlet extends HttpServlet {
 			
 			BoardDAO boardDAO = new BoardDAO();
 			List<BoardDO> boardList = boardDAO.getBoardList(searchField, searchText);
+			
+			
+			// 검색 결과를 세션에 저장
+			HttpSession session = request.getSession();
+			session.setAttribute("boardList", boardList);
+			
+			// 포워딩(응답)
+			response.sendRedirect("getBoardList.jsp");
+		} else if (filePath.equals("/getBoard.do")) {
+			System.out.println("게시글 상세보기 처리");
+			
+			String seq = request.getParameter("seq");
+			
+			BoardDO boardDO = new BoardDO();
+			boardDO.setSeq(Integer.parseInt(seq));
+			
+			BoardDAO boardDAO = new BoardDAO();
+			BoardDO board = boardDAO.getBoard(boardDO);
+			HttpSession session = request.getSession();
+			session.setAttribute("board", board);
+			
+			// 포워딩
+			response.sendRedirect("getBoard.jsp");
+		} else if (filePath.equals("/insertBoard.do")) {
+			System.out.println("게시글 입력 처리됨!");
+			
+			String title = request.getParameter("title");
+			String writer = request.getParameter("writer");
+			String content = request.getParameter("content");
+			
+			BoardDO boardDO = new BoardDO();
+			boardDO.setTitle(title);
+			boardDO.setWriter(writer);
+			boardDO.setContent(content);
+			
+			BoardDAO boardDAO = new BoardDAO();
+			boardDAO.insertBoard(boardDO);
+			
+			//포워딩
+			response.sendRedirect("getBoardList.do");
+		} else if (filePath.equals("/updateBoard.do")) {
+			System.out.println("게시글 수정 처리됨!");
+			
+			request.setCharacterEncoding("UTF-8");
+			
+			String seq = request.getParameter("seq");
+			String title = request.getParameter("title");
+			String content = request.getParameter("content");
+			
+			BoardDO boardDO = new BoardDO();
+			boardDO.setSeq(Integer.parseInt(seq));
+			boardDO.setTitle(title);
+			boardDO.setContent(content);
+			
+			BoardDAO boardDAO = new BoardDAO();
+			boardDAO.updateBoard(boardDO);
+			
+			// 포워딩
+			response.sendRedirect("getBoardList.do");
+		} else if (filePath.equals("/deleteBoard.do")) {
+			System.out.println("게시글 삭제 처리됨!");
+			
+			String seq = request.getParameter("seq");
+			
+			BoardDO boardDO = new BoardDO();
+			boardDO.setSeq(Integer.parseInt(seq));
+			
+			BoardDAO boardDAO = new BoardDAO();
+			boardDAO.deleteBoard(boardDO);
+			
+			// 포워딩
+			response.sendRedirect("getBoardList.do");
+		} else if (filePath.equals("/logout.do")) {
+			System.out.println("로그아웃 처리됨!");
+			
+			HttpSession session = request.getSession();
+			session.invalidate();
+			
+			response.sendRedirect("login.jsp");
 		}
 	}
 

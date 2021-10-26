@@ -9,8 +9,9 @@
 
 <%
 	List<BoardDO> boardList = (List) session.getAttribute("boardList");
+	request.setAttribute("boardList", boardList);
 %>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
 	int totalList = boardList.size();
@@ -51,7 +52,7 @@
 			<c:forEach var="board" items="${boardList}">
 				<tr>
 					<td align="center">${board.seq}</td>
-					<td align="left"><a href="getBoard.jsp?seq=${board.seq}">${board.title}</a></td>
+					<td align="left"><a href="getBoard.do?seq=${board.seq}">${board.title}</a></td>
 					<td align="center">${board.writer}</td>
 					<td align="center">${board.regdate}</td>
 					<td align="center">${board.cnt}</td>
