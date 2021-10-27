@@ -28,7 +28,7 @@
 					상태코드 : ${pageContext.errorData.statusCode}<br>
 					예외유형 : ${pageContext.errorData.throwable}
 				</td>
-			</tr>
+			</tr>	
 		</table>
 	</div>
 </body>
