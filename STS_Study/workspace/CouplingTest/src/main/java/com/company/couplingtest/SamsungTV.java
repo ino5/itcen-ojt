@@ -18,7 +18,9 @@ public class SamsungTV implements TV{
 	/*
 	 * @Autowired 어노테이션은 주로 멤버변수 위에 선언하여 사용한다.
 	 * 주로 멤버변수 위에 설정하여 해당 타입의 객체를 찾아서 자동으로 할당한다.
-	 * 스프링 컨테이너는 
+	 * 스프링 컨테이너는 멤버변수 위에 붙은 @Autowired를 확인하는 순간 해당 멤버변수의
+	 * 타입을 체크한다. 그리고 그 타입의 객체가 메모리에 존재하는지 확인한 후에,
+	 * 그 객체를 변수에 주입(인젝션)한다.
 	 */
 	@Autowired
 	private SonySpeaker speaker;
