@@ -24,3 +24,5 @@
 - [📒 프로젝트 - model1 형식으로 게시판 구현](./Web_Study/workspace/Model1_Board/README.md)
 
 - [📒 프로젝트 - model2 형식으로 게시판 구현](./STS_Study/workspace/Model2_Board/README.md)
+
+- [📒 프로젝트 - 결합도, 의존도 낮추기](./STS_Study/workspace/CouplingTest/README.md)
