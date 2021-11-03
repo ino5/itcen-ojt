@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans">
+
+	<!-- com.company.view 이 베이스-패키지의 하위 패키지인 com.company.view.board, com.company.view.user 
+		패키지에 있는모든 클래스를 스캔하여 스프링 컨테이너가 객체를 자동으로 생성한다. 필요 시 인젝션(주입) 하겠다! 의미 -->
+
+
+	<context:component-scan
+		base-package="com.company.view" />
+
+	<mvc:annotation-driven />
+
+</beans>

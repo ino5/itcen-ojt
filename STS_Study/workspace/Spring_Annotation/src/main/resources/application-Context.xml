@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+  
+  
+  <!--  스프링과 Mybatis를 연동하려면 우선 스프링 설정에 SqlSessionFactoryBean 클래스를 Bean 등록해야한다.
+    그래야 SqlSessionFactoryBean 객체로부터 DB 연동에 사용할 
+    SqlSession 객체를 얻을 수 있다.
+ -->
+ 	<context:component-scan base-package="com.company.annotation"></context:component-scan>
+ 	
+ 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+ 		<property name="driverClassName" value="org.h2.Driver"/>
+ 		<property name="jdbcUrl" value="jdbc:h2:tcp://localhost/~/test"/>
+ 		<property name="username" value="sa"/>
+ 		<property name="password" value=""/>
+ 	</bean>
+ 	
+ 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"> 
+ 		<constructor-arg ref="hikariConfig"></constructor-arg>
+ 	</bean>
+ 	
+ 	<!-- mybatis-spring 설정 -->
+ 	<!-- SqlSessionFactoryBean 클래스 빈등록 -->
+ 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+ 		<property name="dataSource" ref="dataSource"/>
+ 		<property name="configLocation" value="classpath:sql-map-config.xml"/>
+ 		<property name="mapperLocations">
+ 			<list>
+ 				<value>classpath:/mappings/Board.xml</value>
+ 			</list>
+ 		</property>
+ 	</bean>
+ 	
+ 	<!-- SqlSessionTemplate 클래스 빈 등록 -->
+ 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+ 		<constructor-arg ref="sqlSessionFactory"/>
+ 	</bean>
+ 	
+</beans>
