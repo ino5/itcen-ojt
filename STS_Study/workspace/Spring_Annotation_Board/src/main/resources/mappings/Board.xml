@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- board 테이블에 관련된 CRUD SQL 문장 설정 -->
+<mapper namespace="BoardDAO">
+	<select id="getBoardList" parameterType="board" resultType="board">
+		SELECT *
+		FROM board
+		WHERE 1 = 1
+		<if test="searchCondition == 'TITLE'">
+			AND title LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		<if test="searchCondition == 'CONTENT'">
+			AND content LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		ORDER BY seq DESC
+	</select>
+	
+	<select id="getBoard" parameterType="board" resultType="board">
+		<![CDATA[
+			SELECT *
+			FROM board
+			WHERE seq = #{seq}
+		]]>
+	</select>
+	
+	<insert id="insertBoard" parameterType="board">
+		<![CDATA[
+			INSERT INTO board(seq, title, writer, content)
+			VALUES ((SELECT NVL(MAX(seq),0)+1 FROM board),
+			#{title}, #{writer}, #{content})
+		]]>		
+	</insert>
+	
+	<update id="updateBoard" parameterType="board">
+		<![CDATA[
+			UPDATE board SET
+				title = #{title},
+				writer = #{writer},
+				content = #{content}
+			WHERE seq = #{seq}
+		]]>			
+	</update>
+	
+	<delete id="deleteBoard" parameterType="board">
+		<![CDATA[
+			DELETE board
+			WHERE seq = #{seq}
+		]]>
+	</delete>
+</mapper>

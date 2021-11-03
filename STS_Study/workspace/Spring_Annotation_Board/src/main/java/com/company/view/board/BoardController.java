@@ -1,5 +1,6 @@
 package com.company.view.board;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,17 +19,19 @@ import com.company.annotation.board.BoardDO;
 
 @Controller
 public class BoardController {	// 통합 컨트롤러
+	@Autowired
+	BoardDAO boardDAO;
+	
 	// 전체 게시글 목록 검색
 	@RequestMapping("/getBoardList.do")
-	public String getBoardList(BoardDO boardDO, BoardDAO boardDAO, 
-							   Model model, String searchCondition, String searchKeyword) {
-		model.addAttribute("boardList", boardDAO.getBoardList(searchCondition, searchKeyword));
+	public String getBoardList(BoardDO boardDO, Model model) {
+		model.addAttribute("boardList", boardDAO.getBoardList(boardDO));
 		return "getBoardList.jsp";
 	}
 	
 	// 게시글 상세보기
 	@RequestMapping("/getBoard.do")
-	public String getBoard(BoardDO boardDO, BoardDAO boardDAO, Model model) {
+	public String getBoard(BoardDO boardDO, Model model) {
 		model.addAttribute("board", boardDAO.getBoard(boardDO));
 		return "getBoard.jsp";
 	}
@@ -36,21 +39,21 @@ public class BoardController {	// 통합 컨트롤러
 	// [힌트] DML 작업 시에는 BoardDO boardDO, BoardDAO boardDAO만 커맨드 객체로 받으면 된다.
 	// 게시글 등록
 	@RequestMapping("/insertBoard.do")
-	public String insertBoard(BoardDO boardDO, BoardDAO boardDAO) {
+	public String insertBoard(BoardDO boardDO) {
 		boardDAO.insertBoard(boardDO);
 		return "redirect:getBoardList.do";
 	}
 	
 	// 게시글 수정
 	@RequestMapping("/updateBoard.do")
-	public String updateBoard(BoardDO boardDO, BoardDAO boardDAO) {
+	public String updateBoard(BoardDO boardDO) {
 		boardDAO.updateBoard(boardDO);
 		return "redirect:getBoardList.do";
 	}
 
 	// 게시글 삭제
 	@RequestMapping("/deleteBoard.do")
-	public String deleteBoard(BoardDO boardDO, BoardDAO boardDAO) {
+	public String deleteBoard(BoardDO boardDO) {
 		boardDAO.deleteBoard(boardDO);
 		return "redirect:getBoardList.do";
 	}	

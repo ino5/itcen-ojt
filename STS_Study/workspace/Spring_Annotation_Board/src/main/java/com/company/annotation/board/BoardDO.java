@@ -9,6 +9,7 @@ public class BoardDO {
 	private String content;		// 게시글내용
 	private Date regdate;		// 작성일자
 	private int cnt;			// 조회수
+	private String searchCondition;
 	
 	// getter, setter 메소드
 	public int getSeq() {return seq;}

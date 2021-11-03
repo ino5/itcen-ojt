@@ -127,7 +127,7 @@ public class BoardDAO {
 	
 	// 게시글 삭제
 	public void deleteBoard(BoardDO boardDO) {
-		System.out.println("===> updateBoard() 처리됨!");
+		System.out.println("===> deleteBoard() 처리됨!");
 		
 		try {
 			conn = JDBCUtil.getConnection();
