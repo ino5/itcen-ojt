@@ -34,3 +34,5 @@
 - [📒 스프링 프로젝트 - 어노테이션 기반 게시판 개발](./STS_Study/workspace/Spring_Annotation_Board/README.md)
 
 - [📒 스프링 프로젝트 - 마이바티스(Mybatis) 연결](./STS_Study/workspace/Spring_Annotation_Board/README2.md)
+
+- [📒 eXERD - ERD 설계하기](./DBModeling/workspace/호텔사례연구/README.md)
