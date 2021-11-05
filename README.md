@@ -35,4 +35,4 @@
 
 - [📒 스프링 프로젝트 - 마이바티스(Mybatis) 연결](./STS_Study/workspace/Spring_Annotation_Board/README2.md)
 
-- [📒 eXERD - ERD 설계하기](./DBModeling/workspace/호텔사례연구/README.md)
+- [📒 eXERD 이용하여 ERD 설계하기](./DBModeling/workspace/호텔사례연구/README.md)
