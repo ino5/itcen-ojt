@@ -25,6 +25,8 @@
 
 - [📒 프로젝트 - model2 형식으로 게시판 구현](./STS_Study/workspace/Model2_Board/README.md)
 
+- [📒 MVC 프레임워크 프로젝트 - 게시판 구현](./STS_Study/workspace/MVC_FW_Board/README.md)
+
 - [📒 스프링 프로젝트 - 결합도, 의존도 낮추기](./STS_Study/workspace/CouplingTest/README.md)
 
 - [📒 스프링 프로젝트 - 의존성 주입(어노테이션), AOP](./STS_Study/workspace/BusinessComponentEx/README.md)
