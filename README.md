@@ -44,3 +44,5 @@
 - [📒 eXERD 이용하여 ERD 설계하기](./DBModeling/workspace/호텔사례연구/README.md)
 
 - [📒 StarUML 유즈 케이스(Use Case) 작성](./모델링/use-case-diagram/README.md)
+
+- [📒 인터넷 서점 쇼핑몰 ERD 모델링 설계](./DBModeling/workspace/인터넷%20쇼핑몰%20모델링/README.md)
