@@ -19,7 +19,9 @@
 
 <br><br>
 
-# 📑 정리
+## 📑 정리
+
+### MVC Web Project
 
 - [📒 프로젝트 - model1 형식으로 게시판 구현](./Web_Study/workspace/Model1_Board/README.md)
 
@@ -37,4 +39,8 @@
 
 - [📒 스프링 프로젝트 - 마이바티스(Mybatis) 연결](./STS_Study/workspace/Spring_Annotation_Board/README2.md)
 
+### 기타
+
 - [📒 eXERD 이용하여 ERD 설계하기](./DBModeling/workspace/호텔사례연구/README.md)
+
+- [📒 StarUML 유즈 케이스(Use Case) 작성](./모델링/use-case-diagram/README.md)
