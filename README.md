@@ -43,6 +43,8 @@
 
 - [📒 리액트 컴포넌트 만들기](./react-ex/react-test/README.md)
 
+- [📒 리액트 props, state, 라우팅](./react-ex/react-test/README2.md)
+
 ### ERD, UML
 
 - [📒 eXERD 이용하여 ERD 설계하기](./DBModeling/workspace/호텔사례연구/README.md)
