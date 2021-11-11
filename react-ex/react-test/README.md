@@ -17,6 +17,8 @@
 1. [카운트 기능 만들기](#aid-6)
 1. [생명주기](#aid-7)
 1. [함수형 컴포넌트 + CSS](#aid-8)
+1. [컴포넌트 임포트](#aid-9)
+
 
 ## 📖 리액트 사용 준비 <a id= "aid-3">
 
@@ -388,6 +390,57 @@ h1 {
   font-family: 궁서;
 }
 ```
+[목차로 이동](#aid-2)
+
+## 📖 컴포넌트 임포트 <a id="aid-9">
+
+### React의 중요 특징
+
+1. 가독성
+2. 재사용성
+3. 유지보수
+
+### 재사용 예시
+
+ImportComponent.js
+
+```jsx
+import React, {Component} from 'react';
+
+class ImportComponent extends Component {
+    render() {
+        return (
+            <h2>React의 특징 중 하나인 재사용성 테스트</h2>
+        );
+    }
+}
+
+export default ImportComponent;
+```
+
+App.js
+
+```jsx
+import React from 'react';
+import './App.css';
+import ImportComponent from './ImportComponent'; /* 추가 */
+
+function App() {
+  return (
+    <div>
+      <h1>React는 자바스크립트 라이브러리의 하나</h1>
+      <p>함수형 컴포넌트 생성하기</p>
+      <ImportComponent></ImportComponent> {/* 컴포넌트 재사용, 사용자 정의 태그 */}
+    </div>
+  );
+}
+export default App;
+```
+
+결과화면
+
+![](md-images/2021-11-11-10-06-14.png)
+
 
 [목차로 이동](#aid-2)
 
